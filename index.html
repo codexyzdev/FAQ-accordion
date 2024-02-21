@@ -3,29 +3,103 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
-
     <title>Frontend Mentor | FAQ accordion</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Happy</h1>
+    <main class="container">
+      <header class="faqs">
+        <h1><img src="assets/images/icon-star.svg" alt="" /> FAQs</h1>
+      </header>
+      <section class="accordion">
+        <h2 class="click-me">
+          What is Frontend Mentor, and how will it help me?
+          <img src="assets/images/icon-plus.svg" id="icon1" alt="" />
+        </h2>
+        <p class="content">
+          Frontend Mentor offers realistic coding challenges to help developers
+          improve their frontend coding skills with projects in HTML, CSS, and
+          JavaScript. It's suitable for all levels and ideal for portfolio
+          building.
+        </p>
+        <hr />
+        <h2 class="click-me">
+          Is Frontend Mentor free?
+          <img src="assets/images/icon-plus.svg" id="icon2" alt="" />
+        </h2>
+        <p class="content">
+          Yes, Frontend Mentor offers both free and premium coding challenges,
+          with the free option providing access to a range of projects suitable
+          for all skill levels.
+        </p>
+        <hr />
+        <h2 class="click-me">
+          Can I use Frontend Mentor projects in my portfolio?
+          <img src="assets/images/icon-plus.svg" id="icon3" alt="" />
+        </h2>
+        <p class="content">
+          Yes, you can use projects completed on Frontend Mentor in your
+          portfolio. It's an excellent way to showcase your skills to potential
+          employers!
+        </p>
+        <hr />
+        <h2 class="click-me">
+          How can I get help if I'm stuck on a Frontend Mentor challenge?
+          <img src="assets/images/icon-plus.svg" id="icon4" alt="" />
+        </h2>
+        <p class="content">
+          The best place to get help is inside Frontend Mentor's Discord
+          community. There's a help channel where you can ask questions and seek
+          support from other community members.
+        </p>
+      </section>
+    </main>
+    <script defer>
+      const toggleElement1 = document.querySelector(".click-me:first-of-type");
+      const iconElement1 = document.getElementById("icon1");
+      const contentElement1 = document.querySelector(".content:first-of-type");
+      const toggleElement2 = document.querySelector(".click-me:nth-of-type(2)");
+      const iconElement2 = document.getElementById("icon2");
+      const contentElement2 = document.querySelector(".content:nth-of-type(2)");
+
+      const toggleElement3 = document.querySelector(".click-me:nth-of-type(3)");
+      const iconElement3 = document.getElementById("icon3");
+      const contentElement3 = document.querySelector(".content:nth-of-type(3)");
+
+      const toggleElement4 = document.querySelector(".click-me:last-of-type");
+      const iconElement4 = document.getElementById("icon4");
+      const contentElement4 = document.querySelector(".content:last-of-type");
+
+      function toggleContent(contentElement, iconElement) {
+        if (contentElement.classList.contains("open")) {
+          contentElement.style.height = 0;
+        } else {
+          contentElement.style.height = contentElement.scrollHeight + "px";
+        }
+        contentElement.classList.toggle("open");
+        iconElement.src = contentElement.classList.contains("open")
+          ? "assets/images/icon-minus.svg"
+          : "assets/images/icon-plus.svg";
+      }
+
+      toggleElement1.addEventListener("click", () => {
+        toggleContent(contentElement1, iconElement1);
+      });
+      toggleElement2.addEventListener("click", () => {
+        toggleContent(contentElement2, iconElement2);
+      });
+      toggleElement3.addEventListener("click", () => {
+        toggleContent(contentElement3, iconElement3);
+      });
+      toggleElement4.addEventListener("click", () => {
+        toggleContent(contentElement4, iconElement4);
+      });
+    </script>
   </body>
 </html>

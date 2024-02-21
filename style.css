@@ -1,0 +1,120 @@
+:root {
+  --White: hsl(0, 0%, 100%);
+  --LightPink: hsl(275, 100%, 97%);
+  --GrayishPurple: hsl(292, 16%, 49%);
+  --DarkPurple: hsl(292, 42%, 14%);
+  --fn: "Work Sans", sans-serif;
+}
+
+@font-face {
+  font-family: var(--fn);
+  src: url("assets/fonts/WorkSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: var(--fn);
+  src: url("assets/fonts/WorkSans-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  background-color: var(--LightPink);
+  font-family: var(--fn);
+  background-image: url(assets/images/background-pattern-mobile.svg);
+  background-repeat: no-repeat;
+}
+
+h1,
+h2 {
+  color: var(--DarkPurple);
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+p {
+  color: var(--GrayishPurple);
+}
+
+hr {
+  background-color: var(--GrayishPurple);
+}
+
+.container {
+  width: 327px;
+  background-color: var(--White);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.faqs {
+  & h1 {
+    display: flex;
+    align-items: center;
+    gap: 1.625rem;
+    & img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.accordion {
+  & h2 {
+    padding-top: 1.75rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  & p {
+    overflow: hidden;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    height: 0;
+    transition: all 0.3s linear;
+  }
+  & h2:hover {
+    color: var(--DarkPurple);
+  }
+}
+
+.open {
+  padding-top: 1.75rem;
+  height: auto !important;
+}
+
+@media screen and (min-width: 375px) {
+  body {
+    background-image: url(assets/images/background-pattern-desktop.svg);
+  }
+  .container {
+    width: 600px;
+    padding: 2rem;
+  }
+  .faqs {
+    & h1 {
+      font-size: 3rem;
+      gap: 2.5rem;
+    }
+  }
+}
